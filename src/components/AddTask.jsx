@@ -28,7 +28,7 @@ const AddTask = ({ onAddTask }) => {
     <>
       <div
         id="add-task-container"
-        className="p-6 bg-linear-to-rbg-linear-to-br from-cyan-200 via-white to-emerald-200"
+        className="p-6 bg-linear-to-rbg-linear-to-br from-cyan-200 via-white to-emerald-200 border-b border-gray-400/60"
       >
         <div className="flex flex-col md:flex-row gap-3 mb-4">
           <input
@@ -37,7 +37,7 @@ const AddTask = ({ onAddTask }) => {
             onChange={(e) => setTaskInput(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleAdd()}
             placeholder="What needs to be done?"
-            className="flex-1 px-4 py-3 bg-gray-200 backdrop-blur-md border border-gray-500 rounded-xl text-black placeholder-gray-500 focus:outline-none"
+            className="flex-1 px-4 py-3 bg-gray-200/50 backdrop-blur-md border border-gray-500 rounded-xl text-black placeholder-gray-500 focus:outline-none"
           />
           <button
             onClick={handleAdd}
