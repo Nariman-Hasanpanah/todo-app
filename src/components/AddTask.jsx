@@ -51,7 +51,7 @@ const AddTask = ({ onAddTask }) => {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="px-4 py-2 bg-gray-300 border border-gray-400 rounded-xl text-gray-800 focus:outline-none"
+            className="px-4 py-2 bg-gray-300 border border-gray-400 rounded-xl text-gray-800 focus:outline-none cursor-pointer"
           >
             {Object.entries(categories).map(([key, cat]) => (
               <option key={key} value={key} className="bg-gray-400/50">
@@ -62,7 +62,7 @@ const AddTask = ({ onAddTask }) => {
           <select
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
-            className="px-4 py-2 bg-gray-300 border border-gray-400 rounded-xl text-gray-800 focus:outline-none"
+            className="px-4 py-2 bg-gray-300 border border-gray-400 rounded-xl text-gray-800 focus:outline-none cursor-pointer"
           >
             <option value="low" className="bg-gray-400/50">
               🟢 Low Priority

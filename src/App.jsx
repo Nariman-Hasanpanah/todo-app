@@ -4,6 +4,7 @@ import { useState } from "react";
 import AddTask from "./components/AddTask";
 import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
+import CategoriesBar from "./components/CategoriesFilter";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -49,6 +50,7 @@ const App = () => {
                 />
                 <FilterBar filter={filter} onFilterChange={handleFilter} />
               </div>
+              <CategoriesBar filter={filter} onFilterChange={handleFilter} />
             </div>
           </main>
         </div>
