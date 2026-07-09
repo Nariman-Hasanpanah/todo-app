@@ -7,7 +7,7 @@ const CategoriesFilter = ({ filter, onFilterChange }) => {
         <button
           key={key}
           onClick={() => onFilterChange(key)}
-          className={`px-3 py-1 border border-gray-500 rounded-full text-sm font-medium transition-all duration-500 cursor-pointer ${
+          className={`px-3 py-1 border border-gray-400 rounded-full text-sm font-medium transition-all duration-500 cursor-pointer ${
             filter === key
               ? `${cat.color} text-white`
               : `bg-white/10 text-gray-700 hover:bg-gray-400/50`
