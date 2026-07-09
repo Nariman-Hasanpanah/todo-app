@@ -3,10 +3,12 @@ import StatsBar from "./components/StatsBar";
 import { useState } from "react";
 import AddTask from "./components/AddTask";
 import SearchBar from "./components/SearchBar";
+import FilterBar from "./components/FilterBar";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [filter, setFilter] = useState("all");
 
   const stats = {
     total: tasks.length,
@@ -17,6 +19,10 @@ const App = () => {
 
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
+  };
+
+  const handleFilter = (newFilter) => {
+    setFilter(newFilter);
   };
 
   return (
@@ -32,11 +38,17 @@ const App = () => {
           </header>
           <main className="bg-gray-500/20 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700 overflow-hidden">
             <AddTask onAddTask={handleAddTask} />
-            <div id="search-container" className="p-6 border-b border-white/10">
-              <SearchBar
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-              />
+            <div id="search-container" className="p-6">
+              <div
+                id="search-filter"
+                className="flex flex-col md:flex-row gap-3"
+              >
+                <SearchBar
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                />
+                <FilterBar filter={filter} onFilterChange={handleFilter} />
+              </div>
             </div>
           </main>
         </div>
