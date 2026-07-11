@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
 import CategoriesBar from "./components/CategoriesFilter";
 import TaskList from "./components/TaskList";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -104,6 +105,28 @@ const App = () => {
               onDeleteTask={handleDeleteTask}
             />
           </main>
+          <footer>
+            <div className="text-center mt-8">
+              <p className="text-gray-800 text-sm mb-6">
+                Press Enter to quickly add tasks • Click star to mark important
+              </p>
+              <p className="text-sm text-gray-800 md:text-base">
+                Created by Nariman Hasanpanah 2026 ©
+              </p>
+            </div>
+            <div className="flex justify-center gap-12 text-gray-700 text-4xl md:text-5xl mt-4">
+              <a href="https://www.linkedin.com/in/nariman-hasan-panah-7b1897308">
+                <h1 className="hover:opacity-60 cursor-pointer">
+                  <AiFillLinkedin />
+                </h1>
+              </a>
+              <a href="https://github.com/Nariman-Hasanpanah">
+                <h1 className="hover:opacity-60 cursor-pointer">
+                  <AiFillGithub />
+                </h1>
+              </a>
+            </div>
+          </footer>
         </div>
       </div>
     </>
