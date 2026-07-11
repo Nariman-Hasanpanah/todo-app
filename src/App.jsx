@@ -23,7 +23,7 @@ const App = () => {
     const matchesSearch = task.text
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
-    const matchesFilter = () => {
+    const matchesFilter = (() => {
       switch (filter) {
         case "all":
           return true;
@@ -34,18 +34,38 @@ const App = () => {
         case "starred":
           return task.starred;
         default:
-          return task.categories === filter;
+          return task.category === filter;
       }
-    };
+    })();
     return matchesFilter && matchesSearch;
   });
 
   const handleAddTask = (newTask) => {
-    setTasks([...tasks, newTask]);
+    setTasks([newTask, ...tasks]);
   };
 
   const handleFilter = (newFilter) => {
     setFilter(newFilter);
+  };
+
+  const handleToggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
+    );
+  };
+
+  const handleToggleStar = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, starred: !task.starred } : task,
+      ),
+    );
+  };
+
+  const handleDeleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -61,7 +81,10 @@ const App = () => {
           </header>
           <main className="bg-gray-500/20 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700 overflow-hidden">
             <AddTask onAddTask={handleAddTask} />
-            <div id="search-container" className="p-6 border-b border-gray-400/60">
+            <div
+              id="search-container"
+              className="p-6 border-b border-gray-400/60"
+            >
               <div
                 id="search-filter"
                 className="flex flex-col md:flex-row gap-3"
@@ -74,7 +97,12 @@ const App = () => {
               </div>
               <CategoriesBar filter={filter} onFilterChange={handleFilter} />
             </div>
-            <TaskList tasks={tasks} filteredTasks={filteredTasks} />
+            <TaskList
+              filteredTasks={filteredTasks}
+              onToggleTask={handleToggleTask}
+              onToggleStar={handleToggleStar}
+              onDeleteTask={handleDeleteTask}
+            />
           </main>
         </div>
       </div>

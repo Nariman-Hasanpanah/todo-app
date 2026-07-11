@@ -14,8 +14,8 @@ const AddTask = ({ onAddTask }) => {
       id: Date.now(),
       text: taskInput,
       completed: false,
-      priority: priority,
-      category: categories,
+      priority,
+      category,
       createdAt: new Date().toISOString(),
       starred: false,
     };
