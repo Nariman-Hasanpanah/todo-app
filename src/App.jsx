@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import StatsBar from "./components/StatsBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
@@ -9,9 +9,17 @@ import TaskList from "./components/TaskList";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const stats = {
     total: tasks.length,
