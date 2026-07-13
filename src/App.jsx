@@ -7,6 +7,12 @@ import FilterBar from "./components/FilterBar";
 import CategoriesBar from "./components/CategoriesFilter";
 import TaskList from "./components/TaskList";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import {
+  addTask,
+  toggleTask,
+  toggleStar,
+  deleteTask,
+} from "./utils/taskHandlers";
 
 const App = () => {
   const [tasks, setTasks] = useState(() => {
@@ -50,7 +56,7 @@ const App = () => {
   });
 
   const handleAddTask = (newTask) => {
-    setTasks([newTask, ...tasks]);
+    setTasks((prev) => addTask(prev, newTask));
   };
 
   const handleFilter = (newFilter) => {
@@ -58,23 +64,15 @@ const App = () => {
   };
 
   const handleToggleTask = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task,
-      ),
-    );
+    setTasks((prev) => toggleTask(prev, id));
   };
 
   const handleToggleStar = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, starred: !task.starred } : task,
-      ),
-    );
+    setTasks((prev) => toggleStar(prev, id));
   };
 
   const handleDeleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks((prev) => deleteTask(prev, id));
   };
 
   return (
