@@ -10,7 +10,7 @@ const CategoriesFilter = ({ filter, onFilterChange }) => {
           className={`px-3 py-1 border border-gray-400 rounded-full text-sm font-medium transition-all duration-500 cursor-pointer ${
             filter === key
               ? `${cat.color} text-white`
-              : `bg-white/10 text-gray-700 hover:bg-gray-400/50`
+              : `bg-white/10 text-gray-700 dark:text-white hover:bg-gray-400/50`
           }`}
         >
           {cat.icon} {cat.name}

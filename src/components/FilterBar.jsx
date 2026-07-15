@@ -7,10 +7,10 @@ const FilterBar = ({ filter, onFilterChange }) => {
         <button
           key={item.id}
           onClick={() => onFilterChange(item.id)}
-          className={`px-2 py-2 rounded-xl border border-gray-400 font-medium transition-all duration-500 cursor-pointer ${
+          className={`px-2 py-2 rounded-xl border border-gray-400 font-medium cursor-pointer ${
             filter === item.id
-              ? "bg-gray-700 text-white"
-              : "bg-gray-300/50 text-gray-700 hover:bg-gray-700 hover:text-white"
+              ? "bg-gray-700 dark:bg-gray-400/50 text-white"
+              : "bg-gray-300/50 dark:bg-gray-700 text-gray-700 dark:text-white"
           }`}
         >
           {item.label}

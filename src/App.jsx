@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import StatsBar from "./components/StatsBar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import AddTask from "./components/AddTask";
 import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
@@ -13,6 +13,8 @@ import {
   toggleStar,
   deleteTask,
 } from "./utils/taskHandlers";
+import { ThemeContext } from "./context/ThemeContext";
+import { Sun, Moon } from "lucide-react";
 
 const App = () => {
   const [tasks, setTasks] = useState(() => {
@@ -22,6 +24,8 @@ const App = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("all");
+
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -79,8 +83,17 @@ const App = () => {
     <>
       <div
         id="task-manager-page"
-        className="min-h-screen bg-linear-to-br from-cyan-200 via-white to-emerald-200 p-4 md:p-8"
+        className="min-h-screen bg-linear-to-br from-cyan-300 via-white to-emerald-300 dark:bg-linear-to-br dark:from-indigo-950 dark:via-gray-900 dark:to-purple-950 p-4 md:p-8"
       >
+        <div id="theme-toggle">
+          <button className="ml-5 sm:ml-20 md:ml-30 lg:ml-70 mt-5 cursor-pointer hover:opacity-60" onClick={toggleTheme}>
+            {darkMode ? (
+              <Moon className="text-yellow-200 dark:text-7xl" size={30} />
+            ) : (
+              <Sun className="text-yellow-500" size={30} />
+            )}
+          </button>
+        </div>
         <div id="task-manager" className="max-w-5xl mx-auto">
           <header>
             <Header />
@@ -113,14 +126,14 @@ const App = () => {
           </main>
           <footer>
             <div className="text-center mt-8">
-              <p className="text-gray-800 text-sm mb-6">
+              <p className="text-gray-800 dark:text-white text-sm mb-6">
                 Press Enter to quickly add tasks • Click star to mark important
               </p>
-              <p className="text-sm text-gray-800 md:text-base">
+              <p className="text-sm text-gray-800 dark:text-white md:text-base">
                 Created by Nariman Hasanpanah 2026 ©
               </p>
             </div>
-            <div className="flex justify-center gap-12 text-gray-700 text-4xl md:text-5xl mt-4">
+            <div className="flex justify-center gap-12 text-gray-700 dark:text-white text-4xl md:text-5xl mt-4">
               <a href="https://www.linkedin.com/in/nariman-hasan-panah-7b1897308">
                 <h1 className="hover:opacity-60 cursor-pointer">
                   <AiFillLinkedin />

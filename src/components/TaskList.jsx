@@ -11,7 +11,7 @@ const TaskList = ({
       {filteredTasks.length === 0 ? (
         <div className="text-center py-12">
           <div className="text-6xl mb-4">📝</div>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 dark:text-white text-lg">
             {filteredTasks.length === 0
               ? "No tasks yet. Add your first task!"
               : "No tasks match your filter."}
