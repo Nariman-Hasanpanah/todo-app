@@ -1,16 +1,141 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ✅ Task Manager
 
-Currently, two official plugins are available:
+A modern and responsive Task Management application built with React and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Organize your daily tasks with categories, priorities, search, filters, dark mode, and persistent storage using LocalStorage.
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚡️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ React (Vite)
+- 🎨 Tailwind CSS
+- 💾 LocalStorage
+- 🧠 Context API
+- 🧩 Component-Based Architecture
+- 📦 JavaScript (ES6+)
+
+---
+
+## ✨ Features
+
+- ✅ Add new tasks
+- 🗑 Delete tasks
+- ✔️ Mark tasks as completed
+- ⭐ Star / Unstar tasks
+- 🔍 Search tasks
+- 🗂 Filter by status
+- 📁 Filter by category
+- 🚩 Priority levels (High, Medium, Low)
+- 📊 Task statistics
+- 🌙 Dark / Light mode
+- 💾 Persistent data with LocalStorage
+- 📱 Fully responsive design
+
+---
+
+## 📸 Preview
+
+<div align="center">
+
+### Home Page (Light Mode)
+
+<img src="./src/assets/light-mode.png" width="80%" />
+
+### Home Page (Dark Mode)
+
+<img src="./src/assets/dark-mode.png" width="80%" />
+
+</div>
+
+---
+
+## 🚀 Live Demo
+
+*نکته مهم برای اجرای دمو : این پروژه از Cloudflare Pages استفاده میکنه که ممکنه از داخل ایران بدون VPN در دسترس نباشد.پس برای مشاهده صحیح پروژه(چه آنلاین و چه لوکال) لطفا حتما VPN خود را روشن نگه دارید.
+
+### 👉 [View Live Project](https://todo-app-eru.pages.dev/)
+
+---
+
+## ⚙️ Installation
+
+git clone https://github.com/Nariman-Hasanpanah/todo-app.git
+
+cd todo-app
+
+npm install
+
+npm run dev
+
+---
+
+## 📚 What I Learned
+
+- React Fundamentals
+- Component-Based Architecture
+- State Management with useState
+- Side Effects with useEffect
+- Controlled Components
+- Lifting State Up
+- Props & Component Communication
+- Array Methods (map, filter)
+- LocalStorage
+- JSON.stringify() & JSON.parse()
+- Conditional Rendering
+- Reusable Components
+- Utility Functions
+- Dark Mode implementation with Tailwind CSS
+
+---
+
+## 📁 Project Structure
+
+```
+src
+│
+│
+├── components
+│   ├── Header
+│   ├── AddTask
+│   ├── SearchBar
+│   ├── FilterBar
+│   ├── TaskList
+│   ├── TaskItem
+│   └── StatsBar
+│
+├── context
+│   ├── ThemeContext.jsx
+│   └── ThemeProvider.jsx
+│
+├── data
+│   ├── categories.jsx
+│   └── filters.jsx
+│
+├── utils
+│   ├── taskHandlers.jsx
+│   └── getPriorityColor.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+---
+
+## 👨‍💻 Author
+
+Nariman Hasanpanah
+
+- GitHub: https://github.com/Nariman-Hasanpanah
+- LinkedIn: https://www.linkedin.com/in/nariman-hasan-panah-7b1897308
+
+---
+
+## ⭐️ Support
+
+If you like this project, don't forget to give it a ⭐️ on GitHub.
+
+Thank you ❤️
